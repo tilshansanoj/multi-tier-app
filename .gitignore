@@ -129,3 +129,4 @@ nbproject
 *.terraform*
 *.tfstate*
 *.pem*
+*tfkey*
