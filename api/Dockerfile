@@ -1,7 +1,7 @@
-FROM node:12.18.3-alpine3.12
+FROM node:22-alpine
 
 RUN addgroup app && adduser -S -G app app
-USER app
+USER root
 
 WORKDIR /app
 
