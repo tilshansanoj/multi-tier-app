@@ -6,17 +6,6 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "environment_name" {
-    description = "Deployment environment (dev/staging/production)"
-    type = string
-    default = "dev"  
-}
-
-variable "app_name" {
-  description = "Name of the web application"
-  type        = string
-  default     = "web-app"
-}
 
 # EC2 variables
 variable "ami" {
@@ -28,5 +17,5 @@ variable "ami" {
 variable "instance_type" {
   description = "ec2 instance type"
   type        = string
-  default     = "t2.micro"
+  default     = "t3.small"
 }

@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  web:
+    build: ./web
+    ports:
+      - 3001:3001
+    environment:
+      PORT: 3001
+      API_HOST: http://api:3000
+
+  api:
+    build: ./api
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
+      DB: postgres://root:root@db:5432/test_db
+  db:
+    image: postgres:15.1-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test_db
+    ports:
+      - 5432:5432
+    
