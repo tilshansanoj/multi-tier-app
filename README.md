@@ -61,9 +61,9 @@ If everything is done correctly you can check it by accessing *<ip_address_vm>:3
 
 1. Create a new configuration file  in /etc/nginx/sites-available/.
 
-`sudo  nano  /etc/nginx/sites-available/web_example`
+`sudo  nano  /etc/nginx/sites-available/web_config`
 
-2. Add a new server block for api.example.com and web.example.com
+2. Add a new server block for api.example.com and web.example.com in web_config
 
 ```
 server {
