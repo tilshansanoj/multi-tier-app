@@ -94,4 +94,4 @@ sudo  nginx  -t
 sudo  systemctl  reload  nginx
 ```
 
-4. Finally update the DNS settings to ensure that the DNS record for api.example.com and web.example.com points to the public IP address of your Virtual machine.]
+4. Finally update the DNS settings to ensure that the DNS record for api.example.com and web.example.com points to the public IP address of your Virtual machine.
