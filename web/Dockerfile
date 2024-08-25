@@ -20,3 +20,5 @@ EXPOSE 3001
 
 # The default command to run when the container starts.
 CMD [ "npm", "start" ]
+
+
