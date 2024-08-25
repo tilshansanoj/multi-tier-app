@@ -54,3 +54,44 @@ Login again to the virtual machine and run the following commands to execute the
 
 
 If everything is done correctly you can check it by accessing *<ip_address_vm>:3000/api/status* . This will show you the current time from database. If you access the *<ip_address_vm>:3001* .
+
+## Step 4: Nginx Host-Based Routing Configuration
+
+
+
+1. Create a new configuration file  in /etc/nginx/sites-available/.
+
+`sudo  nano  /etc/nginx/sites-available/web_example`
+
+2. Add a new server block for api.example.com and web.example.com
+
+```
+server {
+    listen 80;
+
+    server_name web.example.com;
+
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}
+
+server {
+    listen 80;
+
+    server_name api.example.com;
+
+    location / {
+        proxy_pass http://localhost:3001;
+    }
+}
+``` 
+
+
+3. Test and reload Nginx
+```
+sudo  nginx  -t
+sudo  systemctl  reload  nginx
+```
+
+4. Finally update the DNS settings to ensure that the DNS record for api.example.com and web.example.com points to the public IP address of your Virtual machine.]
