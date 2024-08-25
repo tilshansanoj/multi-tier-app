@@ -34,3 +34,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Verify Docker Compose installation
 docker-compose --version
 
+sudo nginx -t
+sudo systemctl reload nginx
