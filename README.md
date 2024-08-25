@@ -13,7 +13,7 @@ This is a simple multi-tier application written with Node JS. The architecture o
 
 ## Getting started with the Virtual Machine
 
- 1. **Create a Terraform Configuration File**: Create a file named [main.tf](https://github.com/tilshansanoj/wa-technical-assessment/blob/main/provisioning/main.tf) in your directory. This file will contain the configuration for your EC2 instance. Click [here](https://github.com/tilshansanoj/wa-technical-assessment/blob/main/provisioning/main.tf) to learn more about the Terraform configuration file for the EC2 instance
+ 1. **Create a Terraform Configuration File**: Create a file named [main.tf](https://github.com/tilshansanoj/wa-technical-assessment/blob/main/provisioning/main.tf) in your directory. This file will contain the configuration for your EC2 instance.
  2. . **Initialize Terraform**: Run the following command to initialize your Terraform directory. This will download the necessary provider plugins (in this case, AWS).
  `terraform init`
  3. **Create the execution plan**: Run this command to create an execution plan, which previews the changes Terraform will make to your infrastructure.
