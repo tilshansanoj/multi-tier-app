@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # This action will automatically use Node.js 20
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -22,7 +22,7 @@ jobs:
           node-version: 18.x
 
       - name: Install frontend dependencies
-        working-directory: ./web
+        working-directory: ./frontend
         run: npm ci
 
       - name: Build frontend
@@ -44,7 +44,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Uses Node.js 20 automatically
 
       - name: Setup Node.js (for backend)
         uses: actions/setup-node@v3
@@ -52,7 +52,7 @@ jobs:
           node-version: 18.x
 
       - name: Install backend dependencies
-        working-directory: ./api
+        working-directory: ./backend
         run: npm ci
 
       - name: Run backend tests
@@ -69,4 +69,19 @@ jobs:
           # scp -r ./backend/build your-server:/path/to/deploy
           echo "Deploy backend"
 
- 
+  database:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Uses Node.js 20 automatically
+
+      - name: Apply database migrations
+        run: |
+          # Run DB migration scripts (e.g., Flyway, Django migrate, etc.)
+          echo "Apply database migrations"
+
+      - name: Run database health checks
+        run: |
+          # Perform health checks on the database
+          echo "Check database health"
