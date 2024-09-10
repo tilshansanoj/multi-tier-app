@@ -13,13 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3  # This action will automatically use Node.js 20
+     
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 20.x
 
       - name: Install frontend dependencies
         working-directory: ./web
@@ -43,13 +41,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3  # Uses Node.js 20 automatically
-
       - name: Setup Node.js (for backend)
-        uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 20.x
 
       - name: Install backend dependencies
         working-directory: ./api
