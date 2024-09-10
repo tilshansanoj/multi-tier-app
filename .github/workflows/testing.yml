@@ -1,0 +1,72 @@
+name: CI/CD Pipeline for Three-Tier App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install frontend dependencies
+        working-directory: ./web
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Run frontend tests
+        working-directory: ./frontend
+        run: npm test
+
+      - name: Deploy frontend
+        run: |
+          # Example deployment script for S3, Netlify, or other providers
+          # aws s3 sync ./frontend/build s3://your-bucket-name
+          echo "Deploy frontend"
+
+  backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js (for backend)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install backend dependencies
+        working-directory: ./api
+        run: npm ci
+
+      - name: Run backend tests
+        working-directory: ./backend
+        run: npm test
+
+      - name: Build backend
+        working-directory: ./backend
+        run: npm run build
+
+      - name: Deploy backend
+        run: |
+          # Example deployment to EC2, Heroku, or any cloud server
+          # scp -r ./backend/build your-server:/path/to/deploy
+          echo "Deploy backend"
+
+ 
